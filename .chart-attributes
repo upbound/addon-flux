@@ -1,0 +1,4 @@
+CHART_NAME=flux2
+CHART_VERSION=2.18.4
+RELEASE_NAME=flux-system
+REPO_URL=https://fluxcd-community.github.io/helm-charts

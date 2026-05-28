@@ -1,0 +1,51 @@
+apiVersion: meta.pkg.upbound.io/v1beta1
+kind: AddOn
+metadata:
+  annotations:
+    friendly-name.meta.crossplane.io: Flux CD
+    meta.crossplane.io/description: |
+      Flux is a set of continuous delivery solutions for Kubernetes that enables
+      GitOps-based cluster management. This addon includes source-controller,
+      kustomize-controller, helm-controller, notification-controller,
+      image-automation-controller, and image-reflector-controller.
+    meta.crossplane.io/license: Apache-2.0
+    meta.crossplane.io/maintainer: Upbound Maintainers <info@upbound.io>
+    meta.crossplane.io/readme: |
+      Flux keeps Kubernetes clusters in sync with sources of configuration
+      (like Git repositories and OCI artifacts) and automates updates to
+      configuration when there is new code to deploy.
+    meta.crossplane.io/source: https://github.com/fluxcd/flux2
+    meta.upbound.io/hardening: |
+      - Backporting
+    meta.upbound.io/host: |
+      - UXP
+      - Spaces
+    meta.upbound.io/subscription: |
+      - Community
+      - Standard
+      - Enterprise
+      - Business Critical
+  name: flux
+spec:
+  packagingType: Helm
+  helm:
+    releaseName: flux-system
+    releaseNamespace: flux-system
+    chart:
+      name: flux2
+      url: https://github.com/fluxcd-community/helm-charts/releases/download/flux2-2.18.4
+    values:
+      cli:
+        image: xpkg.upbound.io/upbound/flux-cli
+      sourceController:
+        image: xpkg.upbound.io/upbound/flux-source-controller
+      kustomizeController:
+        image: xpkg.upbound.io/upbound/flux-kustomize-controller
+      helmController:
+        image: xpkg.upbound.io/upbound/flux-helm-controller
+      notificationController:
+        image: xpkg.upbound.io/upbound/flux-notification-controller
+      imageAutomationController:
+        image: xpkg.upbound.io/upbound/flux-image-automation-controller
+      imageReflectionController:
+        image: xpkg.upbound.io/upbound/flux-image-reflector-controller

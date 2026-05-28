@@ -1,0 +1,6 @@
+apiVersion: pkg.upbound.io/v1alpha1
+kind: Controller
+metadata:
+  name: addon-flux
+spec:
+  package: xpkg.upbound.io/upbound/controller-flux:2.18.4
