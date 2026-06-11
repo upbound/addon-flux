@@ -27,6 +27,7 @@ spec:
     values:
       cli:
         image: xpkg.upbound.io/upbound/flux-cli
+        tag: v2.3.0-1
       sourceController:
         image: xpkg.upbound.io/upbound/flux-source-controller
       kustomizeController:
