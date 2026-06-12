@@ -23,7 +23,7 @@ spec:
     releaseNamespace: flux-system
     chart:
       name: flux2
-      url: https://github.com/fluxcd-community/helm-charts/releases/download/flux2-2.18.4
+      url: https://github.com/fluxcd-community/helm-charts/releases/download/flux2-2.17.2
     values:
       cli:
         image: xpkg.upbound.io/upbound/flux-cli
